@@ -1,0 +1,63 @@
+Example response of autentication for user that is not linked with any staff.
+
+{
+    "username": "mifos",
+    "userId": 1,
+    "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
+    "authenticated": true,
+    "officeId": 1,
+    "officeName": "Head Office",
+    "roles": [
+        {
+            "id": 1,
+            "name": "Super user",
+            "description": "This role provides all application permissions."
+        }
+    ],
+    "permissions": [
+        "ALL_FUNCTIONS"
+    ]
+}
+					
+
+Example response of autentication for user that is linked with a staff member and role.
+
+{
+    "username": "mifos",
+    "userId": 1,
+    "base64EncodedAuthenticationKey": "bWlmb3M6cGFzc3dvcmQ=",
+    "authenticated": true,
+    "officeId": 1,
+    "officeName": "Head Office",
+    "staffId": 1,
+    "staffDisplayName": "Director, Program",
+    "organisationalRole": {
+        "id": 100,
+        "code": "staffOrganisationalRoleType.programDirector",
+        "value": "Program Director"
+    },
+    "roles": [
+        {
+            "id": 1,
+            "name": "Super user",
+            "description": "This role provides all application permissions."
+        }
+    ],
+    "permissions": [
+        "ALL_FUNCTIONS"
+    ]
+}
+
+POST authentication?username=mifos&password=fail
+Content-Type: application/json
+No Request Body
+					
+
+{
+    "developerMessage": "Invalid authentication details were passed in api request.",
+    "developerDocLink": "https://github.com/openMF/mifosx/wiki/HTTP-API-Error-codes",
+    "httpStatusCode": "401",
+    "defaultUserMessage": "Unauthenticated. Please login.",
+    "userMessageGlobalisationCode": "error.msg.not.authenticated",
+    "errors": []
+}
